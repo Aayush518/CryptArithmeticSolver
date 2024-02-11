@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptarithmetic Solver</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Add a favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>Cryptarithmetic Solver</h1>
+    </header>
+    <main>
+        <form action="{{ url_for('index') }}" method="post" class="math-form">
+            <label for="first_string">First String:</label>
+            <input type="text" id="first_string" name="first_string" required><br>
+            <label for="second_string">Second String:</label>
+            <input type="text" id="second_string" name="second_string" required><br>
+            <label for="third_string">Result String:</label>
+            <input type="text" id="third_string" name="third_string" required><br>
+            <input type="submit" value="Solve">
+        </form>
+        {% if solutions %}
+            <section class="solutions">
+                <h2>Solutions:</h2>
+                <ul>
+                    {% for solution in solutions %}
+                        <li>{{ solution }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+            <section class="statistics">
+                <h2>Statistics:</h2>
+                <p>Status: {{ statistics.status }}</p>
+                <p>Conflicts: {{ statistics.conflicts }}</p>
+                <p>Branches: {{ statistics.branches }}</p>
+                <p>Wall Time: {{ statistics.wall_time }} s</p>
+                <p>Solutions Found: {{ statistics.sol_found }}</p>
+            </section>
+        {% endif %}
+    </main>
+    <footer>
+        <p>Made by <a href="https://github.com/Aayush518">Aayush518</a></p>
+    </footer>
+</body>
+</html>
