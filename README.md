@@ -68,9 +68,9 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Images
 
-![Image Description](static/img/Screenshot 2024-02-12 at 01.52.27.png)
-![Image Description](static/img/Screenshot 2024-02-12 at 01.52.34.png)
+![Image Description](https://raw.githubusercontent.com/Aayush518/CryptArithmeticSolver/main/static/img/Screenshot%202024-02-12%20at%2001.52.27.png)
 
+![Image Description](https://raw.githubusercontent.com/Aayush518/CryptArithmeticSolver/main/static/img/Screenshot%202024-02-12%20at%2001.52.34.png)
 
 
 
