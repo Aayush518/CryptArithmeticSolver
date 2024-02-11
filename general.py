@@ -40,6 +40,9 @@ def solve_cryptarithmetic(first_string, second_string, third_string):
     # Ensure each letter corresponds to a unique value
     model.AddAllDifferent(list(letters.values()))
 
+    # Ensure the first letter of the result string (carryover) is not zero
+    model.Add(letters[third_string[0]] != 0)
+
     # Creates a solver and solves the model.
     solver = cp_model.CpSolver()
     solution_printer = VarArraySolutionPrinter(list(letters.values()))
