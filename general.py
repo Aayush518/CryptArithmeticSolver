@@ -19,26 +19,38 @@ class VarArraySolutionPrinter(cp_model.CpSolverSolutionCallback):
 
 def solve_cryptarithmetic(first_string, second_string, third_string):
     """Solve the cryptarithmetic puzzle."""
+    # Constraint programming engine
     model = cp_model.CpModel()
 
+    # Get unique letters from all strings
     all_letters = set(first_string + second_string + third_string)
     letters = {}
     for letter in all_letters:
         letters[letter] = model.NewIntVar(0, 9, letter)
 
+    # Convert strings to variables
     first_num = sum(letters[letter] * 10**i for i, letter in enumerate(reversed(first_string)))
     second_num = sum(letters[letter] * 10**i for i, letter in enumerate(reversed(second_string)))
     third_num = sum(letters[letter] * 10**i for i, letter in enumerate(reversed(third_string)))
 
+    # Define constraints
     model.Add(first_num + second_num == third_num)
-    model.AddAllDifferent(list(letters.values()))
-    model.Add(letters[first_string[0]] != 0)
 
+    # Ensure each letter corresponds to a unique value
+    model.AddAllDifferent(list(letters.values()))
+
+    # Ensure the first letter of the result string (carryover) is not zero
+    model.Add(letters[third_string[0]] != 0)
+
+    # Creates a solver and solves the model.
     solver = cp_model.CpSolver()
     solution_printer = VarArraySolutionPrinter(list(letters.values()))
+    # Enumerate all solutions.
     solver.parameters.enumerate_all_solutions = True
+    # Solve.
     status = solver.Solve(model, solution_printer)
 
+    # Statistics
     statistics = {
         "status": solver.StatusName(status),
         "conflicts": solver.NumConflicts(),
