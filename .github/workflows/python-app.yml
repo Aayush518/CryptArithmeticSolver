@@ -29,4 +29,4 @@ jobs:
 
     - name: Run Flask app
       run: |
-        python app.py
+        gunicorn app:app
