@@ -26,10 +26,7 @@ header {
     text-align: center;
 }
 
-h1 {
-    margin: 0;
-    font-size: 36px;
-}
+
 
 main {
     padding: 20px;
@@ -126,4 +123,44 @@ footer a {
     font-size: 18px;
     margin: 0;
     padding: 5px 0;
+}
+/* Navigation Styles */
+nav {
+    margin-top: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0; /* Remove margin for the last link */
+}
+
+nav ul li a {
+    color: #f0ecec;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #f0f0f0;
+    color: black;
+}
+
+header h1 {
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace'
 }

@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cryptarithmetic Solver</title>
+    <title>Extended Cryptarithmetic Solver</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <!-- Add a favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-        <h1>Cryptarithmetic Solver</h1>
+        <h1> Extended Cryptarithmetic Solver</h1>
         <nav>
             <ul>
                 <li><a href="/">Standard</a></li>
@@ -19,13 +18,15 @@
         </nav>
     </header>
     <main>
-        <form action="{{ url_for('index') }}" method="post" class="math-form">
+        <form action="{{ url_for('extended') }}" method="post" class="math-form">
             <label for="first_string">First String:</label>
             <input type="text" id="first_string" name="first_string" required><br>
             <label for="second_string">Second String:</label>
             <input type="text" id="second_string" name="second_string" required><br>
-            <label for="third_string">Result String:</label>
+            <label for="third_string">Third String:</label>
             <input type="text" id="third_string" name="third_string" required><br>
+            <label for="fourth_string">Result String:</label>
+            <input type="text" id="fourth_string" name="fourth_string" required><br>
             <input type="submit" value="Solve">
         </form>
         {% if solutions %}
